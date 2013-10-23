@@ -1,0 +1,13 @@
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\FoldingAtomata.exe.config
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.MainForm.resources
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.csproj.GenerateResource.Cache
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\FoldingAtomata.exe
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\FoldingAtomata.pdb
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\OpenTK.dll
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\OpenTK.GLControl.dll
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.exe
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.pdb
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.Resources.resources
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\obj\Debug\FoldingAtomata.csprojResolveAssemblyReference.cache
+C:\Users\TekuConcept\Documents\Visual Studio 2013\Projects\FoldingAtomata\FoldingAtomata\bin\Debug\MouseKeyboardActivityMonitor.dll

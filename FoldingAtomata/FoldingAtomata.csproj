@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7D1019E-B7D9-4B93-AF87-B90979AF1CD7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoldingAtomata</RootNamespace>
+    <AssemblyName>FoldingAtomata</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MouseKeyboardActivityMonitor">
+      <HintPath>..\..\..\..\Visual Studio 2012\Projects\FoldingXNA\FoldingXNA\bin\Debug\MouseKeyboardActivityMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OpenTK\3.0\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OpenTK\3.0\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OpenTK\3.0\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlutManager.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modeling\DataBuffers\ColorBuffer.cs" />
+    <Compile Include="Modeling\DataBuffers\DataBuffer.cs" />
+    <Compile Include="Modeling\DataBuffers\IndexBuffer.cs" />
+    <Compile Include="Modeling\DataBuffers\OptionalDataBuffer.cs" />
+    <Compile Include="Modeling\DataBuffers\SampledBuffers\TexturedCube.cs" />
+    <Compile Include="Modeling\DataBuffers\VertexBuffer.cs" />
+    <Compile Include="Modeling\InstancedModel.cs" />
+    <Compile Include="Modeling\Mesh\Mesh.cs" />
+    <Compile Include="Modeling\Mesh\Quad.cs" />
+    <Compile Include="Modeling\Mesh\Triangle.cs" />
+    <Compile Include="Modeling\Shading\Shader.cs" />
+    <Compile Include="Modeling\Shading\ShaderManager.cs" />
+    <Compile Include="Modeling\Shading\ShaderProgram.cs" />
+    <Compile Include="Modeling\Shading\ShaderSnippet.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PyON\StringManip.cs" />
+    <Compile Include="PyON\TrajectoryParser.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sockets\ClientSocket.cs" />
+    <Compile Include="Sockets\FAHSocket.cs" />
+    <Compile Include="Sockets\SocketException.cs" />
+    <Compile Include="Trajectory\Atom.cs" />
+    <Compile Include="Trajectory\ProteinAnalysis.cs" />
+    <Compile Include="Trajectory\Snapshot.cs" />
+    <Compile Include="Trajectory\Topology.cs" />
+    <Compile Include="Trajectory\Trajectory.cs" />
+    <Compile Include="Utils\Porting.cs" />
+    <Compile Include="Utils\XNA\BoundingBox.cs" />
+    <Compile Include="Utils\XNA\BoundingSphere.cs" />
+    <Compile Include="Utils\XNA\Collision.cs" />
+    <Compile Include="Utils\XNA\Color.cs" />
+    <Compile Include="Utils\XNA\Color3.cs" />
+    <Compile Include="Utils\XNA\Color4.cs" />
+    <Compile Include="Utils\XNA\ColorBGRA.cs" />
+    <Compile Include="Utils\XNA\DrawingPoint.cs" />
+    <Compile Include="Utils\XNA\DrawingPointF.cs" />
+    <Compile Include="Utils\XNA\DrawingRectangle.cs" />
+    <Compile Include="Utils\XNA\DrawingRectangleF.cs" />
+    <Compile Include="Utils\XNA\DynamicSerializer.cs" />
+    <Compile Include="Utils\XNA\MathUtil.cs" />
+    <Compile Include="Utils\XNA\Matrix.cs" />
+    <Compile Include="Utils\XNA\Matrix5x4.cs" />
+    <Compile Include="Utils\XNA\Plane.cs" />
+    <Compile Include="Utils\XNA\Quaternion.cs" />
+    <Compile Include="Utils\XNA\Ray.cs" />
+    <Compile Include="Utils\XNA\Vector2.cs" />
+    <Compile Include="Utils\XNA\Vector3.cs" />
+    <Compile Include="Utils\XNA\Vector4.cs" />
+    <Compile Include="Utils\XNA\Viewport.cs" />
+    <Compile Include="Utils\XNA\ViewportF.cs" />
+    <Compile Include="Viewer\FAHClientIO.cs" />
+    <Compile Include="Viewer\SlotViewer.cs" />
+    <Compile Include="Viewer\User.cs" />
+    <Compile Include="Viewer\Viewer.cs" />
+    <Compile Include="World\Camera.cs" />
+    <Compile Include="World\Light.cs" />
+    <Compile Include="World\Scene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\demoProtein.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gradient.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
