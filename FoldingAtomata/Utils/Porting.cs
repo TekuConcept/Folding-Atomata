@@ -97,6 +97,14 @@ namespace FoldingAtomata
             }
             return builders.ToArray();
         }
+
+        public static void RemoveAll<T>(this List<T> list, T occurance)
+        {
+            while (list.Contains(occurance))
+            {
+                list.Remove(occurance);
+            }
+        }
     }
 
     public struct Pair<T1, T2>

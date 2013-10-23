@@ -1,6 +1,4 @@
 ﻿using FoldingAtomata.NViewer;
-using MouseKeyboardActivityMonitor;
-using MouseKeyboardActivityMonitor.WinApi;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;

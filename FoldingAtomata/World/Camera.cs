@@ -7,7 +7,6 @@ namespace FoldingAtomata.World
 {
     public class Camera
     {
-        #region - Public -
         public Camera()
         {
             Reset();
@@ -36,13 +35,17 @@ namespace FoldingAtomata.World
             if (viewMatrixUniform < 0 || projMatrixUniform < 0)
                 throw new Exception("Unable to find Camera uniform variables!");
 
+            Console.WriteLine("Position: [{0:0.##}, {1:0.##}, {2:0.##}] View: [{3:0.##}, {4:0.##}, {5:0.##}]", _pos.X, _pos.Y, _pos.Z, _look.X, _look.Y, _look.Z);
+
             //assemble view matrix and sync if it has updated
-            if (_viewUpdated)
-                GL.UniformMatrix4(viewMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempViewMat));
+            OpenTK.Matrix4 mata = Utils.XNA_OTK_Matrix(_tempViewMat);
+            if (_viewUpdated) GL.UniformMatrix4(viewMatrixUniform, false, ref mata);
+                //GL.UniformMatrix4(viewMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempViewMat));
 
             //sync projection matrix if it has updated
-            if (_projectionUpdated)
-                GL.UniformMatrix4(projMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempProjMat));
+            OpenTK.Matrix4 matb = Utils.XNA_OTK_Matrix(_tempProjMat);
+            if (_projectionUpdated) GL.UniformMatrix4(projMatrixUniform, false, ref matb);
+                //GL.UniformMatrix4(projMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempProjMat));
         }
         public void EndSync()
         {
@@ -84,22 +87,26 @@ namespace FoldingAtomata.World
         // translation relative to orientation
         public void MoveForward(float value)
         {
-            Translate(GetLookAt() * value);
+            var look = GetLookAt();
+            Translate(look * value);
         }
         public void MoveRight(float value)
         {
             Vector3 orientation = GetLookAt();
+            Vector3 cross = Vector3.Cross(orientation, Up);
             Vector3 tangental = Vector3.Normalize(XNA.Vector3.Cross(orientation, Up));
             Translate(tangental * value);
         }
         public void MoveUp(float value)
         {
-            Translate(Vector3.Normalize(Up) * value);
+            var norm = Vector3.Normalize(Up);
+            Translate(norm * value);
         }
 
         // orientation controls
         public void Pitch(float theta)
         {
+            /*
             Vector3 lookVector = Look - Position;
             Vector3 tangental = Vector3.Cross(lookVector, Up);
             Matrix rotationMatrix = Matrix.RotationAxis(tangental, theta);
@@ -111,13 +118,16 @@ namespace FoldingAtomata.World
             var q2 = new Quaternion(lookVector, 1);
             var m2 = Matrix.RotationQuaternion(q2);
             lookVector = (rotationMatrix * m2).Forward; //xyz
+            */
+            pitch = XNA.MathUtil.Wrap(theta, 0, 360);
+            YawPitchRoll();
 
-
-            Look = Position + lookVector;
+            //Look = Position + lookVector;
             _viewUpdated = true;
         }
         public void Yaw(float theta, bool aroundUpVector = true)
         {
+            /*
             Vector3 vectorOfRotation = aroundUpVector ? Up : new Vector3(0, 0, 1);
             Matrix rotationMatrix = Matrix.RotationAxis(vectorOfRotation, theta);
 
@@ -129,19 +139,40 @@ namespace FoldingAtomata.World
             var q2 = new Quaternion(Up, 1);
             var m2 = Matrix.RotationQuaternion(q2);
             Up  = (rotationMatrix * m2).Up; //xyz
-            
-            Look = Position + lookVector;
+            */
+            yaw = XNA.MathUtil.Wrap(theta, 0, 360);
+            YawPitchRoll();
+
+            //Look = Position + lookVector;
             _viewUpdated = true;
         }
         public void Roll(float theta)
         {
+            /*
             Vector3 orientation = GetLookAt();
             Matrix rotationMatrix = Matrix.RotationAxis(orientation, theta);
 
             var q1 = new Quaternion(Up, 1);
             var m1 = Matrix.RotationQuaternion(q1);
             Up = (rotationMatrix * m1).Up; //xyz
+            */
+            roll = XNA.MathUtil.Wrap(theta, 0, 360);
+            YawPitchRoll();
+            
             _viewUpdated = true;
+        }
+        private void YawPitchRoll()
+        {
+            Matrix ypr = Matrix.RotationYawPitchRoll(yaw, pitch, roll);
+
+            Vector3 lookat = Look - Position;
+
+            // set look
+            var l = Vector3.Transform(lookat, ypr);
+            Look = new Vector3(l.X + _pos.X, l.Y + _pos.Y, l.Z + _pos.Z);
+            // set up
+            var u = Vector3.Transform(Up, ypr);
+            Up = new Vector3(u.X, u.Y, u.Z);
         }
         public bool ConstrainedPitch(float theta)
         {
@@ -202,7 +233,8 @@ namespace FoldingAtomata.World
         // accessors for camera's position and orientation
         public Vector3 GetLookAt()
         {
-            return Vector3.Normalize(Look - Position);
+            Vector3 norm = Vector3.Normalize(Look - Position);
+            return norm;
         }
         public Matrix CalculateViewMatrix()
         {
@@ -217,13 +249,35 @@ namespace FoldingAtomata.World
         {
             return String.Format("Look: [{0}] Pos: [{1}] Up: [{2}]", Look.ToString(), Position.ToString(), Up.ToString());
         }
-        #endregion
 
-        Vector3 _pos;
-        Matrix _tempViewMat, _tempProjMat;
-        float _fov, _ar, _nfc, _ffc;
-        bool _viewUpdated, _projectionUpdated;
-        public Vector3 Look { get; set; }
+        Vector3 
+            _pos, 
+            _look;
+        Matrix 
+            _tempViewMat, 
+            _tempProjMat;
+        float 
+            _fov, 
+            _ar, 
+            _nfc, 
+            _ffc, 
+            yaw = 0, 
+            pitch = 0, 
+            roll = 0;
+        bool 
+            _viewUpdated, 
+            _projectionUpdated;
+        public Vector3 Look
+        {
+            get
+            {
+                return _look;
+            }
+            set
+            {
+                _look = value;
+            }
+        }
         public Vector3 Position
         {
             get

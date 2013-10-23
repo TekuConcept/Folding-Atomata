@@ -34,9 +34,9 @@ namespace FoldingAtomata.NViewer
             camera.MoveRight(_movementDelta.Y);
             camera.MoveUp(_movementDelta.Z);
 
-            if (_downKeys.FindAll(KeyAction.POSITIVE_ROLL) > 0)
+            if (_downKeys.Contains(KeyAction.POSITIVE_ROLL))
                 camera.Roll(ROLL_SPEED * deltaTime);
-            if (_downKeys.FindAll(KeyAction.NEGATIVE_ROLL) > 0)
+            if (_downKeys.Contains(KeyAction.NEGATIVE_ROLL))
                 camera.Roll(-ROLL_SPEED * deltaTime);
 
             if (_downKeys.Count == 0)
@@ -44,19 +44,19 @@ namespace FoldingAtomata.NViewer
         }
         public void ApplyAcceleration(int deltaTime)
         {
-            if (_downKeys.FindAll(KeyAction.FORWARD) > 0)
+            if (_downKeys.Contains(KeyAction.FORWARD))
                 _movementDelta.X += ACCELERATION * deltaTime;
-            if (_downKeys.FindAll(KeyAction.BACKWARD) > 0)
+            if (_downKeys.Contains(KeyAction.BACKWARD))
                 _movementDelta.X -= ACCELERATION * deltaTime;
 
-            if (_downKeys.FindAll(KeyAction.RIGHT) > 0)
+            if (_downKeys.Contains(KeyAction.RIGHT))
                 _movementDelta.Y += ACCELERATION * deltaTime;
-            if (_downKeys.FindAll(KeyAction.LEFT) > 0)
+            if (_downKeys.Contains(KeyAction.LEFT))
                 _movementDelta.Y -= ACCELERATION * deltaTime;
 
-            if (_downKeys.FindAll(KeyAction.UP) > 0)
+            if (_downKeys.Contains(KeyAction.UP))
                 _movementDelta.Z += ACCELERATION * deltaTime;
-            if (_downKeys.FindAll(KeyAction.DOWN) > 0)
+            if (_downKeys.Contains(KeyAction.DOWN))
                 _movementDelta.Z -= ACCELERATION * deltaTime;
         }
         public void SetWindowOffset(int x, int y)
@@ -118,27 +118,27 @@ namespace FoldingAtomata.NViewer
             switch(key)
             {
                 case Keys.W:
-                    _downKeys.Remove(KeyAction.FORWARD);
+                    _downKeys.RemoveAll(KeyAction.FORWARD);
                     break;
 
                 case Keys.S:
-                    _downKeys.Remove(KeyAction.BACKWARD);
+                    _downKeys.RemoveAll(KeyAction.BACKWARD);
                     break;
 
                 case Keys.D:
-                    _downKeys.Remove(KeyAction.RIGHT);
+                    _downKeys.RemoveAll(KeyAction.RIGHT);
                     break;
 
                 case Keys.A:
-                    _downKeys.Remove(KeyAction.LEFT);
+                    _downKeys.RemoveAll(KeyAction.LEFT);
                     break;
 
                 case Keys.E:
-                    _downKeys.Remove(KeyAction.UP);
+                    _downKeys.RemoveAll(KeyAction.UP);
                     break;
 
                 case Keys.Q:
-                    _downKeys.Remove(KeyAction.DOWN);
+                    _downKeys.RemoveAll(KeyAction.DOWN);
                     break;
             }
         }
@@ -160,11 +160,11 @@ namespace FoldingAtomata.NViewer
             switch(key)
             {
                 case Keys.PageUp:
-                    _downKeys.Remove(KeyAction.NEGATIVE_ROLL);
+                    _downKeys.RemoveAll(KeyAction.NEGATIVE_ROLL);
                     break;
 
                 case Keys.PageDown:
-                    _downKeys.Remove(KeyAction.POSITIVE_ROLL);
+                    _downKeys.RemoveAll(KeyAction.POSITIVE_ROLL);
                     break;
             }
         }

@@ -12,12 +12,12 @@ namespace FoldingAtomata.Modeling.Shading
 
     struct NShaderType
     {
-        OpenTK.Graphics.ES20.ShaderType value;
+        public ShaderType value;
         NShaderType(Object T){
             if (T is VertexShaderTag)
-                value = OpenTK.Graphics.ES20.ShaderType.VertexShader;
+                value = ShaderType.VertexShader;
             else if (T is FragmentShaderTag)
-                value = OpenTK.Graphics.ES20.ShaderType.FragmentShader;
+                value = ShaderType.FragmentShader;
             else throw new ArgumentException("Invalid parameter: " + T.GetType().Name);
         }
     }
