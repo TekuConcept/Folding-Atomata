@@ -74,14 +74,14 @@ namespace FoldingAtomata.NViewer
         private void ReportFPS()
         {
             System.Threading.Thread fpsReporter = new System.Threading.Thread(
-                () => 
+                () =>
                 {
                     while (true)
                     {
                         System.Threading.Thread.Sleep(1000);
 
                         float msPerFrame = _timeSpentRendering / _frameCount;
-                        Console.Write("{0} FPS, spent {1} ms rendering, avg {2} ms/frame\n", 
+                        Console.Write("{0} FPS, spent {1} ms rendering, avg {2} ms/frame\n",
                             _frameCount, _timeSpentRendering, msPerFrame);
                         _frameCount = 0;
                         _timeSpentRendering = 0;
@@ -107,7 +107,7 @@ namespace FoldingAtomata.NViewer
             var positiveZ = Image.FromFile(Options.GetInstance().PathToImageC);//, false, true);
             var negativeZ = Image.FromFile(Options.GetInstance().PathToImageC);//, true, false);
 
-            List<OptionalDataBuffer> list = new List<OptionalDataBuffer>(){new TexturedCube(positiveX, negativeX, positiveY, negativeY, positiveZ, negativeZ)};
+            List<OptionalDataBuffer> list = new List<OptionalDataBuffer>() { new TexturedCube(positiveX, negativeX, positiveY, negativeY, positiveZ, negativeZ) };
             var matrix = Matrix.Scaling(new Vector3(4096));
             var model = new InstancedModel(SkyboxMesh, matrix, list);
             _scene.AddModel(model); //add to Scene and save
@@ -159,7 +159,7 @@ namespace FoldingAtomata.NViewer
         {
             var camera = new Camera();
             camera.Position = new Vector3(0, -50, 0);
-            
+
             camera.LookAt(
                 new Vector3(0, 0, 0),
                 new Vector3(0, 0, 1)

@@ -87,8 +87,6 @@ namespace FoldingAtomata.Modeling.Shading
             }
             else
                 Console.WriteLine("done.");
-
-            //std::cout << code << std::endl;
         }
 
         public static Shader Make_ShaderStr(string code, ShaderType type)

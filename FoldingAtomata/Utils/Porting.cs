@@ -8,6 +8,7 @@ namespace FoldingAtomata
 {
     public static class Utils
     {
+        //*
         public static OpenTK.Matrix4 XNA_OTK_Matrix(XNA.Matrix mat)
         {
             return new OpenTK.Matrix4(
@@ -31,6 +32,7 @@ namespace FoldingAtomata
         {
             return new float[] { vec.X, vec.Y, vec.Z };
         }
+        //*/
 
         public static int FindAll<T>(this List<T> list, T search)
         {

@@ -95,29 +95,75 @@
     <Compile Include="Trajectory\Topology.cs" />
     <Compile Include="Trajectory\Trajectory.cs" />
     <Compile Include="Utils\Porting.cs" />
-    <Compile Include="Utils\XNA\BoundingBox.cs" />
-    <Compile Include="Utils\XNA\BoundingSphere.cs" />
-    <Compile Include="Utils\XNA\Collision.cs" />
-    <Compile Include="Utils\XNA\Color.cs" />
-    <Compile Include="Utils\XNA\Color3.cs" />
-    <Compile Include="Utils\XNA\Color4.cs" />
-    <Compile Include="Utils\XNA\ColorBGRA.cs" />
-    <Compile Include="Utils\XNA\DrawingPoint.cs" />
-    <Compile Include="Utils\XNA\DrawingPointF.cs" />
-    <Compile Include="Utils\XNA\DrawingRectangle.cs" />
-    <Compile Include="Utils\XNA\DrawingRectangleF.cs" />
-    <Compile Include="Utils\XNA\DynamicSerializer.cs" />
-    <Compile Include="Utils\XNA\MathUtil.cs" />
-    <Compile Include="Utils\XNA\Matrix.cs" />
-    <Compile Include="Utils\XNA\Matrix5x4.cs" />
-    <Compile Include="Utils\XNA\Plane.cs" />
-    <Compile Include="Utils\XNA\Quaternion.cs" />
-    <Compile Include="Utils\XNA\Ray.cs" />
-    <Compile Include="Utils\XNA\Vector2.cs" />
-    <Compile Include="Utils\XNA\Vector3.cs" />
-    <Compile Include="Utils\XNA\Vector4.cs" />
-    <Compile Include="Utils\XNA\Viewport.cs" />
-    <Compile Include="Utils\XNA\ViewportF.cs" />
+    <Compile Include="Utils\XNA\BoundingBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\BoundingSphere.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Collision.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Color.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Color3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Color4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\ColorBGRA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\DrawingPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\DrawingPointF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\DrawingRectangle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\DrawingRectangleF.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\DynamicSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\MathUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Matrix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Matrix5x4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Plane.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Quaternion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Ray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Vector2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Vector3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Vector4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\Viewport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XNA\ViewportF.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Viewer\FAHClientIO.cs" />
     <Compile Include="Viewer\SlotViewer.cs" />
     <Compile Include="Viewer\User.cs" />

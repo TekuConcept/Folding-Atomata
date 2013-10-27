@@ -40,12 +40,10 @@ namespace FoldingAtomata.World
             //assemble view matrix and sync if it has updated
             OpenTK.Matrix4 mata = Utils.XNA_OTK_Matrix(_tempViewMat);
             if (_viewUpdated) GL.UniformMatrix4(viewMatrixUniform, false, ref mata);
-                //GL.UniformMatrix4(viewMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempViewMat));
 
             //sync projection matrix if it has updated
             OpenTK.Matrix4 matb = Utils.XNA_OTK_Matrix(_tempProjMat);
             if (_projectionUpdated) GL.UniformMatrix4(projMatrixUniform, false, ref matb);
-                //GL.UniformMatrix4(projMatrixUniform, 1, false, Utils.XNA_Float_Matrix(_tempProjMat));
         }
         public void EndSync()
         {

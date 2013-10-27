@@ -21,7 +21,6 @@ namespace FoldingAtomata
         Timer animation = new Timer();
         Timer updater = new Timer();
         Timer mainLoop = new Timer();
-        //MouseHookListener m_mouseListener;
 
         public MainForm()
         {
@@ -32,10 +31,6 @@ namespace FoldingAtomata
             mainLoop.Interval = 25;
 
             mainLoop.Tick += mainLoop_Tick;
-
-            //AppHooker hooker = new AppHooker();
-            //m_mouseListener = new MouseHookListener(hooker);
-            //m_mouseListener.Enabled = true;
         }
         void mainLoop_Tick(object sender, EventArgs e)
         {
@@ -115,7 +110,7 @@ namespace FoldingAtomata
                 GetMouse(ref e, out mbtn, out msta);
 
                 var p = PointToScreen(e.Location);
-                Viewer.Instance.User.OnMouseClick(mbtn, msta, e.X, e.Y, p.X-e.X, p.Y-e.Y);
+                Viewer.Instance.User.OnMouseClick(mbtn, msta, e.X, e.Y, p.X - e.X, p.Y - e.Y);
                 //Console.WriteLine("X: {0} Y: {0}", e.X, e.Y);
             }
             catch (Exception ex)
@@ -129,7 +124,7 @@ namespace FoldingAtomata
             try
             {
                 var p = PointToScreen(e.Location);
-                Viewer.Instance.User.OnMouseMotion(e.X, e.Y, p.X-e.X, p.Y-e.Y);
+                Viewer.Instance.User.OnMouseMotion(e.X, e.Y, p.X - e.X, p.Y - e.Y);
             }
             catch (Exception ex)
             {
@@ -255,9 +250,9 @@ namespace FoldingAtomata
                 case MouseButtons.Right: button = OpenTK.Input.MouseButton.Right; break;
                 case MouseButtons.Left | MouseButtons.Right:
                     button = OpenTK.Input.MouseButton.Left | OpenTK.Input.MouseButton.Right; break;
-                case MouseButtons.Left | MouseButtons.Middle: 
+                case MouseButtons.Left | MouseButtons.Middle:
                     button = OpenTK.Input.MouseButton.Left | OpenTK.Input.MouseButton.Middle; break;
-                case MouseButtons.Right | MouseButtons.Middle: 
+                case MouseButtons.Right | MouseButtons.Middle:
                     button = OpenTK.Input.MouseButton.Right | OpenTK.Input.MouseButton.Middle; break;
                 case MouseButtons.Left | MouseButtons.Middle | MouseButtons.Right:
                     button = OpenTK.Input.MouseButton.Left | OpenTK.Input.MouseButton.Middle | OpenTK.Input.MouseButton.Right; break;

@@ -77,12 +77,12 @@ namespace FoldingAtomata.NViewer
         }
         public void RecenterCursor(int xoff, int yoff)
         {
-            GlutManager.WarpPointer(_windowCenterX+xoff, _windowCenterY+yoff); //moves mouse cursor
+            GlutManager.WarpPointer(_windowCenterX + xoff, _windowCenterY + yoff); //moves mouse cursor
             _mouseMoved = true;
         }
         public void OnKeyPress(Keys key)
         {
-            switch(key)
+            switch (key)
             {
                 case Keys.W:
                     _downKeys.Add(KeyAction.FORWARD);
@@ -115,7 +115,7 @@ namespace FoldingAtomata.NViewer
         }
         public void OnKeyRelease(Keys key)
         {
-            switch(key)
+            switch (key)
             {
                 case Keys.W:
                     _downKeys.RemoveAll(KeyAction.FORWARD);
@@ -144,7 +144,7 @@ namespace FoldingAtomata.NViewer
         }
         public void OnSpecialKeyPress(Keys key)
         {
-            switch(key)
+            switch (key)
             {
                 case Keys.PageUp:
                     _downKeys.Add(KeyAction.NEGATIVE_ROLL);
@@ -157,7 +157,7 @@ namespace FoldingAtomata.NViewer
         }
         public void OnSpecialKeyRelease(Keys key)
         {
-            switch(key)
+            switch (key)
             {
                 case Keys.PageUp:
                     _downKeys.RemoveAll(KeyAction.NEGATIVE_ROLL);
@@ -224,12 +224,12 @@ namespace FoldingAtomata.NViewer
         }
 
         private Scene _scene;
-        private bool 
-            _mouseControlsCamera, 
-            _mouseMoved = false, 
+        private bool
+            _mouseControlsCamera,
+            _mouseMoved = false,
             _determinedLastPosition = false;
-        private int 
-            _windowCenterX, 
+        private int
+            _windowCenterX,
             _windowCenterY;
         private Vector3 _movementDelta;
         private List<KeyAction> _downKeys = new List<KeyAction>();

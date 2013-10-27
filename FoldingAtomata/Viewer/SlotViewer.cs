@@ -167,7 +167,9 @@ namespace FoldingAtomata.NViewer
             float angle = 180 / 3.1415926f * radians;
 
             var translated = Matrix.Translation(a);
-            return Matrix.RotationAxis(Vector3.Cross(z, p), (float)angle) * translated;
+
+            var mat = Matrix.RotationAxis(Vector3.Cross(z, p), (float)angle);
+            return mat * translated;
         }
         public static float GetDotProduct(Vector3 a, Vector3 b)
         {
